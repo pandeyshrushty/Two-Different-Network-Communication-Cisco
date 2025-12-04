@@ -1,0 +1,42 @@
+Router> enable
+Router# configure terminal
+Router(config)# interface gig0/0/1
+Router(config-if)# ip address 192.168.0.1 255.255.255.0
+Router(config-if)# no shutdown
+
+Router(config)# interface gig0/0/0
+Router(config-if)# ip address 192.168.1.1 255.255.255.0
+Router(config-if)# no shutdown
+
+Router(config)# exit
+Router# copy run start
+
+pc01
+Desktop
+static ip 192.168.0.2
+Mask  255.255.255.0
+gatway 192.168.0.1
+
+pc02
+Desktop
+static ip 192.168.0.3
+Mask  255.255.255.0
+gatway 192.168.0.1
+
+pc03
+Desktop
+static ip 192.168.1.2
+Mask  255.255.255.0
+gatway 192.168.1.1
+
+pc04
+Desktop
+static ip 192.168.1.3
+Mask  255.255.255.0
+gatway 192.168.1.1
+
+PDU packet router to pc3 
+
+ping CLI Pc3 to Pc1 102.168.0.2
+
+
